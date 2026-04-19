@@ -6,25 +6,51 @@
 //
 
 import SwiftUI
+import FirebaseCore
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+        FirebaseApp.configure()
+        return true
+    }
+}
 
 @main
 struct DogBreedAppApp: App {
-    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject var viewModel = BreedViewModel()
+    @StateObject var authVM = AuthViewModel()
     @AppStorage("hasSeenIntro") var hasSeenIntro: Bool = false
-    
+
     var body: some Scene {
         WindowGroup {
-            NavigationStack {
-                if hasSeenIntro {
-                    FilterView()
+            Group {
+                if !hasSeenIntro {
+                    NavigationStack {
+                        IntroView {
+                            hasSeenIntro = true
+                        }
+                    }
+                } else if !authVM.isLoggedIn {
+                    NavigationStack {
+                        LoginView()
+                    }
                 } else {
-                    IntroView {
-                        hasSeenIntro = true
+                    NavigationStack {
+                        FilterView()
+                            .toolbar {
+                                ToolbarItem(placement: .navigationBarTrailing) {
+                                    Button("Logout") {
+                                        authVM.logout()
+                                    }
+                                }
+                            }
                     }
                 }
             }
             .environmentObject(viewModel)
+            .environmentObject(authVM)
         }
     }
 }

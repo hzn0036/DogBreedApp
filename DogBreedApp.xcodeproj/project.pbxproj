@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		9DDC96672F8DB008008AD190 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9DDC96662F8DB008008AD190 /* FirebaseAnalytics */; };
+		9DDC96692F8DB008008AD190 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9DDC96682F8DB008008AD190 /* FirebaseAuth */; };
+		9DDC966B2F8DB008008AD190 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 9DDC966A2F8DB008008AD190 /* FirebaseFirestore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		9D3032562F7F1C8C0071CAD4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -42,6 +48,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DDC96672F8DB008008AD190 /* FirebaseAnalytics in Frameworks */,
+				9DDC96692F8DB008008AD190 /* FirebaseAuth in Frameworks */,
+				9DDC966B2F8DB008008AD190 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +109,9 @@
 			);
 			name = DogBreedApp;
 			packageProductDependencies = (
+				9DDC96662F8DB008008AD190 /* FirebaseAnalytics */,
+				9DDC96682F8DB008008AD190 /* FirebaseAuth */,
+				9DDC966A2F8DB008008AD190 /* FirebaseFirestore */,
 			);
 			productName = DogBreedApp;
 			productReference = 9D3032482F7F1C8B0071CAD4 /* DogBreedApp.app */;
@@ -177,6 +189,9 @@
 			);
 			mainGroup = 9D30323F2F7F1C8B0071CAD4;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				9DDC96652F8DB008008AD190 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 9D3032492F7F1C8B0071CAD4 /* Products */;
 			projectDirPath = "";
@@ -375,6 +390,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
@@ -406,6 +422,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
@@ -552,6 +569,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9DDC96652F8DB008008AD190 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.12.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9DDC96662F8DB008008AD190 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9DDC96652F8DB008008AD190 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		9DDC96682F8DB008008AD190 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9DDC96652F8DB008008AD190 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		9DDC966A2F8DB008008AD190 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9DDC96652F8DB008008AD190 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9D3032402F7F1C8B0071CAD4 /* Project object */;
 }
